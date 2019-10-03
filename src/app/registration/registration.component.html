@@ -1,1 +1,32 @@
-<p>registration works!</p>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput formControlName="FirstName" placeholder="First name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="LastName" placeholder="Last name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="email" formControlName="Email" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="date" formControlName="BirthDate" placeholder="Birth date">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Gender" placeholder="Gender">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Interests" placeholder="Interests">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="MeetGoal" placeholder="Meet goal">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Other" placeholder="Other">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" formControlName="Password" placeholder="Password">
+        </mat-form-field>
+        <button  mat-button>Submit</button>
+    </div>
+</form>
