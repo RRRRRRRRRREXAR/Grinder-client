@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { RegistrationModel } from '../models/RegistrationModel';
 import { AuthorizeService } from '../authorize.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,7 @@ import { AuthorizeService } from '../authorize.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private authorizeService:AuthorizeService) { }
+  constructor(private authorizeService:AuthorizeService,private router:Router) { }
   registrationForm = new FormGroup({
     Email:new FormControl(''),
     Password:new FormControl(''),
@@ -35,6 +36,8 @@ export class RegistrationComponent implements OnInit {
     obj.MeetGoal=this.registrationForm.get('MeetGoal').value;
     obj.Other=this.registrationForm.get('Other').value;
     obj.Password=this.registrationForm.get('Password').value;
-    this.authorizeService.register(obj).subscribe();
+    this.authorizeService.register(obj).subscribe(data=>{
+      this.router.navigate(["login"]);
+    });
   }
 }
