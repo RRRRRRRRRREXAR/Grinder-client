@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { ProfileImagesComponent } from './profile-images/profile-images.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ProfileComponent } from './profile/profile.component';
     DashboardComponent,
     LoginComponent,
     RegistrationComponent,
-    ProfileComponent
+    ProfileComponent,
+    UpdateProfileComponent,
+    ProfileImagesComponent
   ],
   imports: [
     BrowserModule,
