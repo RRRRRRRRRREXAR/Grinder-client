@@ -23,14 +23,14 @@ export class UserService {
       .set('Email', Email);
     let token = JSON.parse(localStorage.getItem("currentUser"));
     let options = { headers: new HttpHeaders().set("Authorization", "Bearer " + token.token.access_token), params: params };
-    result = this.http.get<ProfileModel>("https://localhost:44340/api/Profile", options)
+    result = this.http.get<ProfileModel>("https://localhost:44340/api/Profile", options);
     return result;
   }
   getCurrentUser() {
     let result: Observable<UpdateProfileModel>;
     let token = JSON.parse(localStorage.getItem("currentUser"));
     let options = { headers: new HttpHeaders().set("Authorization", "Bearer " + token.token.access_token) };
-    result = this.http.get<UpdateProfileModel>("https://localhost:44340/api/Account", options)
+    result = this.http.get<UpdateProfileModel>("https://localhost:44340/api/Account", options);
     return result;
   }
 }

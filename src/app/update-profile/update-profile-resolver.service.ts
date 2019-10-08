@@ -23,7 +23,6 @@ export class UpdateProfileResolverService implements Resolve<UpdateProfileModel>
         }
         else {
           this.router.navigate(['']);
-          console.log('call');
           return EMPTY;
         }
       })
