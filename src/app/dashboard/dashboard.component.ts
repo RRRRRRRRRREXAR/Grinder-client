@@ -9,18 +9,17 @@ import { UserModel } from '../models/UserModel';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  isUserLoggedIn:boolean;
-  currentUser:any;
-  constructor(private authorizeService:AuthorizeService,private dataService:DataService) { 
-    this.dataService.isUserLoggedIn.subscribe(value=>{
-      this.isUserLoggedIn=value;
-      this.currentUser=JSON.parse(localStorage.getItem('currentUser'));
+  isUserLoggedIn: boolean;
+  currentUser: any;
+  constructor(private authorizeService: AuthorizeService, private dataService: DataService) {
+    this.dataService.isUserLoggedIn.subscribe(value => {
+      this.isUserLoggedIn = value;
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     });
   }
-
   ngOnInit() {
   }
-  onLogout(){
+  onLogout() {
     this.authorizeService.logout();
   }
 }

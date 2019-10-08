@@ -10,6 +10,7 @@ export class ProfileImagesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

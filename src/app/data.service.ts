@@ -6,5 +6,5 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
 
-  public isUserLoggedIn:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(localStorage.getItem("currentUser")!=null);
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(localStorage.getItem("currentUser") != null);
 }

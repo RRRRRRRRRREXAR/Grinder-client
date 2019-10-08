@@ -10,29 +10,28 @@ import { DataService } from './data.service';
   providedIn: 'root'
 })
 export class AuthorizeService {
-  public API='https://localhost:44340/api/Account';
-  constructor(private http:HttpClient,private dataService:DataService) { }
-  register(user:RegistrationModel){
-    let result:Observable<any>;
-    
-    result=this.http.post<any>("https://localhost:44340/api/Account",user);
-   return result;
+  public API = 'https://localhost:44340/api/Account';
+  constructor(private http: HttpClient, private dataService: DataService) { }
+  register(user: RegistrationModel) {
+    let result: Observable<any>;
+
+    result = this.http.post<any>("https://localhost:44340/api/Account", user);
+    return result;
   }
 
-  logout(){
-    
+  logout() {
+
     localStorage.removeItem("currentUser");
     this.dataService.isUserLoggedIn.next(false);
 
   }
 
-  login(user :LoginModel):Observable<UserModel>
-  {
-    let result:Observable<UserModel>;
-    
+  login(user: LoginModel): Observable<UserModel> {
+    let result: Observable<UserModel>;
+
     let body = `username=${user.username}&password=${user.password}&grant_type=password`;
-    let options = {headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')};
-    result=this.http.post<UserModel>("https://localhost:44340/Token",body,options);
+    let options = { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') };
+    result = this.http.post<UserModel>("https://localhost:44340/Token", body, options);
     return result;
   }
 }
