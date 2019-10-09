@@ -5,9 +5,9 @@
         <a mat-button *ngIf="!isUserLoggedIn" routerLink="/login">login</a>
         <a mat-button *ngIf="!isUserLoggedIn" routerLink="/registration">registration</a>
         <a mat-button routerLink="/find">search</a>
-        <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofile">registration</a>
-        <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofileimages">registration</a>
-        <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofilepicture">registration</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofile">update profile</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofileimages">update profile images</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofilepicture">update profile picture</a>
         <a mat-button *ngIf="isUserLoggedIn" (click)="onLogout()">logout</a>
     </mat-toolbar-row>
 

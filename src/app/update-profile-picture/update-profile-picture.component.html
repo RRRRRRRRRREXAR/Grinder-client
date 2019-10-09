@@ -1,1 +1,9 @@
-<p>update-profile-picture works!</p>
+<div class="example-container">
+    <label class="image-upload-container">
+        <span>Select Image</span>
+        <input #imageInput
+               type="file"
+               accept="image/*"
+               (change)="processFile(imageInput)">
+      </label>
+</div>

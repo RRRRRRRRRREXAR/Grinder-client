@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateProfileModel } from '../models/UpdateProfileModel';
 import { UserService } from '../user.service';
+import { ProfileModel } from '../models/ProfileModel';
 
 @Component({
   selector: 'app-update-profile',
@@ -11,43 +12,43 @@ import { UserService } from '../user.service';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute) { }
-  updateUser: UpdateProfileModel;
-  updateForm = new FormGroup({
-    FirstName: new FormControl(),
-    LastName: new FormControl(),
-    BirthDate: new FormControl(),
-    Gender: new FormControl(),
-    MeetGoal: new FormControl(),
-    Other: new FormControl(),
-    Interests: new FormControl(),
-    IsAnonumous: new FormControl()
-  })
+  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute,private fb:FormBuilder,private calll:ChangeDetectorRef) {
+   
+   }
+  updateUser:any;
+  updateForm: FormGroup;
   ngOnInit() {
-    this.route.data.subscribe((data: { profile: UpdateProfileModel }) => {
-      this.updateUser = data.profile;
-      console.log(this.updateUser);
-      this.updateForm.get('BirthDate').setValue(data.profile.BirthDate);
-      this.updateForm.get('FirstName').setValue(data.profile.FirstName);
-      this.updateForm.get('Gender').setValue(data.profile.Gender);
-      this.updateForm.get('Interests').setValue(data.profile.Interests);
-      this.updateForm.get('LastName').setValue(data.profile.LastName);
-      this.updateForm.get('MeetGoal').setValue(data.profile.MeetGoal);
-      this.updateForm.get('Other').setValue(data.profile.Other);
-      this.updateForm.get('IsAnonumous').setValue(data.profile.IsAnonymous);
+    this.route.data.subscribe(data => {
+      this.updateUser = data.updateprofile;
+      this.updateForm=this.fb.group(
+        {
+          BirthDate: data.updateprofile.birthDate,
+          FirstName:data.updateprofile.firstName,
+          Gender: data.updateprofile.gender,
+          Interests:data.updateprofile.interests,
+          IsAnonumous:data.updateprofile.isAnonymous,
+          LastName: data.updateprofile.lastName,
+          MeetGoal: data.updateprofile.meetGoal,
+          Other: data.updateprofile.other,
+        }
+      );
     })
+   
   }
+  
+
   onSubmit() {
     let obj = new UpdateProfileModel();
-    obj.Id = this.updateUser.Id;
-    obj.BirthDate = this.updateForm.get('BirthDate').value;
-    obj.FirstName = this.updateForm.get('FirstName').value;
-    obj.Gender = this.updateForm.get('Gender').value;
-    obj.Interests = this.updateForm.get('Interests').value;
-    obj.LastName = this.updateForm.get('LastName').value;
-    obj.MeetGoal = this.updateForm.get('MeetGoal').value;
-    obj.Other = this.updateForm.get('Other').value;
-    obj.IsAnonymous = this.updateForm.get('IsAnonumous').value;
+    obj.Id = this.updateUser.id;
+    obj.BirthDate = this.updateForm.controls['BirthDate'].value;
+    obj.FirstName = this.updateForm.controls['FirstName'].value;
+    obj.Gender = this.updateForm.controls['Gender'].value;
+    obj.Interests = this.updateForm.controls['Interests'].value;
+    obj.LastName = this.updateForm.controls['LastName'].value;
+    obj.MeetGoal = this.updateForm.controls['MeetGoal'].value;
+    obj.Other = this.updateForm.controls['Other'].value;
+    obj.IsAnonymous = this.updateForm.controls['IsAnonumous'].value;
+    console.log(obj);
     this.userService.updateProfile(obj).subscribe(data => {
       this.router.navigate([""]);
     });

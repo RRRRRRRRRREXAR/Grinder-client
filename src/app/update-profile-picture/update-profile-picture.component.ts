@@ -26,7 +26,7 @@ export class UpdateProfilePictureComponent implements OnInit {
 
       this.selectedFile = new ImageSnippet(event.target.result, file);
 
-      this.imageService.uploadImage(this.selectedFile.file).subscribe(
+      this.imageService.uploadProfileImage(this.selectedFile.file).subscribe(
         (res) => {
 
         },

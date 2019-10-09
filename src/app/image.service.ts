@@ -21,7 +21,14 @@ export class ImageService {
     let options = { headers: new HttpHeaders().set("Authorization", "Bearer " + token.token.access_token) };
     const formData = new FormData();
     formData.append('image', image);
-    return this.http.post("https://localhost:44327/api/Image", formData, options);
+    return this.http.post("https://localhost:44340/api/Image", formData, options);
+  }
+  public uploadProfileImage(image:File):Observable<any>{
+    let token = JSON.parse(localStorage.getItem("currentUser"));
+    let options = { headers: new HttpHeaders().set("Authorization", "Bearer " + token.token.access_token) };
+    const formData = new FormData();
+    formData.append('image', image);
+    return this.http.post("https://localhost:44340/uploadprofilepicture", formData, options);
   }
 }
 
