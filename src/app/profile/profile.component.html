@@ -1,6 +1,6 @@
 <mat-grid-list cols="4" rowHeight="100px" *ngIf="currentProfile">
     <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <img src="{{currentProfile.profileimage.link}}" *ngIf="currentProfile.profileimage!=null">
+    <img src="{{currentProfile.profileImage.link}}" *ngIf="currentProfile.profileImage!=null">
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="3">
       <mat-list role="list">
@@ -12,9 +12,9 @@
         <mat-list-item role="listitem">{{currentProfile.other}}</mat-list-item>
       </mat-list>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="4" [rowspan]="2" *ngIf="currentProfile.Images!=null">
+    <mat-grid-tile [colspan]="4" [rowspan]="2" *ngIf="currentProfile.images!=null">
       <div class="image-container" *ngFor="let image of currentProfile.images">
-        <img src="image.link">
+        <img src="{{image.link}}" >
       </div>
     </mat-grid-tile>
   </mat-grid-list>

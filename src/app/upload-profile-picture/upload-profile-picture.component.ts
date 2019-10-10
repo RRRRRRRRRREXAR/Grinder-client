@@ -8,16 +8,16 @@ class ImageSnippet {
 }
 
 @Component({
-  selector: 'app-update-profile-picture',
-  templateUrl: './update-profile-picture.component.html',
-  styleUrls: ['./update-profile-picture.component.css']
+  selector: 'app-upload-profile-picture',
+  templateUrl: './upload-profile-picture.component.html',
+  styleUrls: ['./upload-profile-picture.component.css']
 })
-export class UpdateProfilePictureComponent implements OnInit {
+export class UploadProfilePictureComponent implements OnInit {
   selectedFile: ImageSnippet;
   constructor(private imageService: ImageService) { }
   ngOnInit() {
   }
-  
+
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
     const reader = new FileReader();

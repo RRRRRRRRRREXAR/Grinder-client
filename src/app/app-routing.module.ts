@@ -7,9 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileImagesComponent } from './profile-images/profile-images.component';
-import { UpdateProfilePictureComponent } from './update-profile-picture/update-profile-picture.component';
+
 import { ProfileResolverService } from './profile/profile-resolver.service';
 import { UpdateProfileResolverService } from './update-profile/update-profile-resolver.service';
+import { UploadProfilePictureComponent } from './upload-profile-picture/upload-profile-picture.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
   {
     path: 'updateprofileimages', component: ProfileImagesComponent
   },
-  { path: 'updateprofilepicture', component: UpdateProfilePictureComponent },
+  { path: 'uploadprofilepicture', component: UploadProfilePictureComponent },
   {
     path: ':currentUser.token.username', component: ProfileComponent,
     resolve: {

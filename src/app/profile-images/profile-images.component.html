@@ -1,0 +1,14 @@
+<mat-grid-list cols='5'>
+  <mat-grid-tile *ngFor="let image of images" >
+    <img src="{{image.link}}">
+  </mat-grid-tile>
+</mat-grid-list>
+<div class="example-container">
+  <label class="image-upload-container">
+      <span>Select Image</span>
+      <input #imageInput
+             type="file"
+             accept="image/*"
+             (change)="processFile(imageInput)">
+    </label>
+</div>

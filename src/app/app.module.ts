@@ -17,8 +17,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ProfileImagesComponent } from './profile-images/profile-images.component';
-import { UpdateProfilePictureComponent } from './update-profile-picture/update-profile-picture.component';
 import { MatListModule } from '@angular/material/list';
+import { UploadProfilePictureComponent } from './upload-profile-picture/upload-profile-picture.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -30,7 +32,7 @@ import { MatListModule } from '@angular/material/list';
     ProfileComponent,
     UpdateProfileComponent,
     ProfileImagesComponent,
-    UpdateProfilePictureComponent
+    UploadProfilePictureComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +46,13 @@ import { MatListModule } from '@angular/material/list';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

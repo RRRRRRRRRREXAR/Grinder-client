@@ -7,7 +7,7 @@
             <input matInput formControlName="LastName" placeholder="Last name">
         </mat-form-field>
         <mat-form-field>
-            <input matInput type="date" formControlName="BirthDate" placeholder="Birth date">
+            <input matInput [matDatepicker]="picker" formControlName="BirthDate" placeholder="Birth date">
         </mat-form-field>
         <mat-form-field>
             <input matInput formControlName="Gender" placeholder="Gender">
@@ -21,9 +21,9 @@
         <mat-form-field>
             <input matInput formControlName="Other" placeholder="Other">
         </mat-form-field>
-        
+
             <input  type="checkbox" formControlName="IsAnonumous" placeholder="Is anonumous">
-        
+
         <button  mat-button>Submit</button>
     </div>
 </form>

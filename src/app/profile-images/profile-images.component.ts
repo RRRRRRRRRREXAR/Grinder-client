@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../image.service';
+import { ImageModel } from '../models/ImageModel';
 
+
+
+class ImageSnippet {
+  pending: boolean = false;
+  status: string = 'init';
+
+  constructor(public src: string, public file: File) { }
+}
 @Component({
   selector: 'app-profile-images',
   templateUrl: './profile-images.component.html',
@@ -7,10 +17,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileImagesComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private imageService: ImageService) { }
+  selectedFile: ImageSnippet;
+  images: any;
   ngOnInit() {
-    
+    this.imageService.getImages().subscribe(data => {
+      this.images = data;
+    })
   }
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
 
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.imageService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+
+        },
+        (err) => {
+
+        })
+    });
+
+    reader.readAsDataURL(file);
+  }
 }

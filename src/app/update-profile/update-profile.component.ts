@@ -8,12 +8,13 @@ import { ProfileModel } from '../models/ProfileModel';
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
-  styleUrls: ['./update-profile.component.css']
+  styleUrls: ['./update-profile.component.css'],
+
 })
 export class UpdateProfileComponent implements OnInit {
 
   constructor(private router: Router, private userService: UserService, private route: ActivatedRoute,private fb:FormBuilder,private calll:ChangeDetectorRef) {
-   
+
    }
   updateUser:any;
   updateForm: FormGroup;
@@ -22,7 +23,7 @@ export class UpdateProfileComponent implements OnInit {
       this.updateUser = data.updateprofile;
       this.updateForm=this.fb.group(
         {
-          BirthDate: data.updateprofile.birthDate,
+          BirthDate: new Date(data.updateprofile.birthDate),
           FirstName:data.updateprofile.firstName,
           Gender: data.updateprofile.gender,
           Interests:data.updateprofile.interests,
@@ -33,14 +34,15 @@ export class UpdateProfileComponent implements OnInit {
         }
       );
     })
-   
+
   }
-  
+
 
   onSubmit() {
     let obj = new UpdateProfileModel();
     obj.Id = this.updateUser.id;
     obj.BirthDate = this.updateForm.controls['BirthDate'].value;
+    console.log(obj.BirthDate);
     obj.FirstName = this.updateForm.controls['FirstName'].value;
     obj.Gender = this.updateForm.controls['Gender'].value;
     obj.Interests = this.updateForm.controls['Interests'].value;
