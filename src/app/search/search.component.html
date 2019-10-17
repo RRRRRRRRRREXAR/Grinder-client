@@ -1,0 +1,36 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput formControlName="firstName" placeholder="Firstname">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput fornControlName="lastName" placeholder="Lastname">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="gender" placeholder="Gender">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="meetGoal" placeholder="Meet goal">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="interests" placeholder="Interests">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="other" placeholder="Other">
+    </mat-form-field>
+            <input type="checkbox" formControlName="isOnline" placeholder="is online">
+        <button  mat-button>Submit</button>
+    </div>
+</form>
+<mat-list *ngIf="searchResults!=null">
+    <mat-list-item role="listitem" *ngFor="let profile of searchResults">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <a routerLink="profile.email">
+                  <mat-card-title>{{profile.firstName}} {{profile.lastName}}</mat-card-title>
+                </a>
+            </mat-card-header>
+        </mat-card>
+    </mat-list-item>
+</mat-list>

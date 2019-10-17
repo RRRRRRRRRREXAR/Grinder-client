@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -28,6 +28,13 @@ export class ImageService {
     let token = JSON.parse(localStorage.getItem("currentUser"));
     let options = { headers: new HttpHeaders().set("Authorization", "Bearer " + token.token.access_token) };
     return this.http.get("https://localhost:44340/api/Image", options);
+  }
+  public deleteImage(id:string){
+    let token = JSON.parse(localStorage.getItem("currentUser"));
+    let params = new HttpParams()
+      .set('Id', id);
+    let options = { headers: new HttpHeaders().set("Authorization", "Bearer " + token.token.access_token),params:params};
+    return this.http.delete("https://localhost:44340/api/Image", options);
   }
 }
 

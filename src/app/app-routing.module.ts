@@ -1,3 +1,4 @@
+import { FriendsComponent } from './friends/friends.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,11 @@ import { ProfileImagesComponent } from './profile-images/profile-images.componen
 import { ProfileResolverService } from './profile/profile-resolver.service';
 import { UpdateProfileResolverService } from './update-profile/update-profile-resolver.service';
 import { UploadProfilePictureComponent } from './upload-profile-picture/upload-profile-picture.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SearchComponent } from './search/search.component';
+import { InvitesComponent } from './invites/invites.component';
+import { FriendsService } from './friends.service';
+import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,7 +30,22 @@ const routes: Routes = [
   {
     path: 'updateprofileimages', component: ProfileImagesComponent
   },
+  {
+    path: 'changepassword', component: ChangePasswordComponent
+  },
+  {
+    path: 'find', component: SearchComponent
+  },
   { path: 'uploadprofilepicture', component: UploadProfilePictureComponent },
+  {
+    path: 'invites', component: InvitesComponent
+  },
+  {
+    path: 'friends', component: FriendsComponent
+  },
+  {
+    path: 'messages', component: MessagesComponent
+  },
   {
     path: ':currentUser.token.username', component: ProfileComponent,
     resolve: {

@@ -44,4 +44,9 @@ export class ProfileImagesComponent implements OnInit {
 
     reader.readAsDataURL(file);
   }
+  deleteImage(id:string){
+    this.imageService.deleteImage(id).subscribe(data=>{
+      this.images=this.images.filter(img=>img.id!=id);
+    });
+  }
 }

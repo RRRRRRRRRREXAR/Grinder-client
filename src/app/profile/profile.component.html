@@ -12,6 +12,9 @@
         <mat-list-item role="listitem">{{currentProfile.other}}</mat-list-item>
       </mat-list>
     </mat-grid-tile>
+    <mat-grid-tile *ngIf="viewer!=currentProfile.email">
+      <button mat-button (click)="inviteClick()">Darova</button>
+    </mat-grid-tile>
     <mat-grid-tile [colspan]="4" [rowspan]="2" *ngIf="currentProfile.images!=null">
       <div class="image-container" *ngFor="let image of currentProfile.images">
         <img src="{{image.link}}" >

@@ -1,0 +1,16 @@
+<mat-list>
+  <mat-list-item *ngFor="let friend of friends;let i = index">
+    <mat-card>
+      <mat-card-header>
+        <img matCardAvatar src="{{friend.profileImage.link}}">
+        <mat-card-title>
+          <a mat-button routerLink="/{{friend.email}}">{{friend.firstName}} {{friend.lastName}}</a>
+        </mat-card-title>
+        <mat-card-subtitle>Subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button (click)="Block(i)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-list-item>
+</mat-list>

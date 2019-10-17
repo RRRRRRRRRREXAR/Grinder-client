@@ -1,6 +1,7 @@
 <mat-grid-list cols='5'>
   <mat-grid-tile *ngFor="let image of images" >
-    <img src="{{image.link}}">
+      <p (click)="deleteImage(image.id)">X</p>
+    <img src="{{image.link}}" style="width: 250px;height:200px">
   </mat-grid-tile>
 </mat-grid-list>
 <div class="example-container">

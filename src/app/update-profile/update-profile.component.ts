@@ -13,21 +13,21 @@ import { ProfileModel } from '../models/ProfileModel';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute,private fb:FormBuilder,private calll:ChangeDetectorRef) {
+  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute, private fb: FormBuilder, private calll: ChangeDetectorRef) {
 
-   }
-  updateUser:any;
+  }
+  updateUser: any;
   updateForm: FormGroup;
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.updateUser = data.updateprofile;
-      this.updateForm=this.fb.group(
+      this.updateForm = this.fb.group(
         {
           BirthDate: new Date(data.updateprofile.birthDate),
-          FirstName:data.updateprofile.firstName,
+          FirstName: data.updateprofile.firstName,
           Gender: data.updateprofile.gender,
-          Interests:data.updateprofile.interests,
-          IsAnonumous:data.updateprofile.isAnonymous,
+          Interests: data.updateprofile.interests,
+          IsAnonumous: data.updateprofile.isAnonymous,
           LastName: data.updateprofile.lastName,
           MeetGoal: data.updateprofile.meetGoal,
           Other: data.updateprofile.other,

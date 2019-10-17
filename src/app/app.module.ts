@@ -21,6 +21,11 @@ import { MatListModule } from '@angular/material/list';
 import { UploadProfilePictureComponent } from './upload-profile-picture/upload-profile-picture.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SearchComponent } from './search/search.component';
+import { FriendsComponent } from './friends/friends.component';
+import { InvitesComponent } from './invites/invites.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -32,7 +37,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     ProfileComponent,
     UpdateProfileComponent,
     ProfileImagesComponent,
-    UploadProfilePictureComponent
+    UploadProfilePictureComponent,
+    ChangePasswordComponent,
+    SearchComponent,
+    FriendsComponent,
+    InvitesComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

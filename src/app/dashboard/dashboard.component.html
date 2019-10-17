@@ -8,6 +8,11 @@
         <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofile">update profile</a>
         <a mat-button *ngIf="isUserLoggedIn" routerLink="/updateprofileimages">update profile images</a>
         <a mat-button *ngIf="isUserLoggedIn" routerLink="/uploadprofilepicture">upload profile picture</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/changepassword">change password</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/search">search</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/invites">invites</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/friends">friends</a>
+        <a mat-button *ngIf="isUserLoggedIn" routerLink="/messages">messages</a>
         <a mat-button *ngIf="isUserLoggedIn" (click)="onLogout()">logout</a>
     </mat-toolbar-row>
 
