@@ -45,10 +45,11 @@ const routes: Routes = [
     path: 'friends', component: FriendsComponent
   },
   {
-    path: 'messages', component: MessagesComponent,
-  },
-  {
-    path: 'dialog', component: DialogComponent
+    path: 'messages', component: MessagesComponent, children: [
+      {
+        path: 'dialog', component: DialogComponent
+      }
+    ]
   },
   {
     path: ':currentUser.token.username', component: ProfileComponent,

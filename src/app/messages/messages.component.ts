@@ -13,7 +13,6 @@ export class MessagesComponent implements OnInit {
   ngOnInit() {
     this.messageService.getDialogs().subscribe(data => {
       this.dialogs = data;
-      console.log(data);
     });
   }
   createDialog() {

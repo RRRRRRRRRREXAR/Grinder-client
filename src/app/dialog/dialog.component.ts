@@ -35,11 +35,10 @@ export class DialogComponent implements OnInit {
       .catch(err => console.log('error while establishing conntection:('));
     this.hubConnection.on("Recieve", (user: string, message: string) => {
       this.messages.push(user + ":" + message);
-      console.log(message);
     })
   }
   sendMessage() {
     let message = this.messageForm.get("Message").value;
-    this.hubConnection.invoke("Send", this.token.token.username, this.messageForm.get("Message").value);
+    this.hubConnection.invoke("Send", this.messageForm.get("Message").value,this.token.token.username);
   }
 }
