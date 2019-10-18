@@ -17,6 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { InvitesComponent } from './invites/invites.component';
 import { FriendsService } from './friends.service';
 import { MessagesComponent } from './messages/messages.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -44,7 +45,10 @@ const routes: Routes = [
     path: 'friends', component: FriendsComponent
   },
   {
-    path: 'messages', component: MessagesComponent
+    path: 'messages', component: MessagesComponent,
+  },
+  {
+    path: 'dialog', component: DialogComponent
   },
   {
     path: ':currentUser.token.username', component: ProfileComponent,

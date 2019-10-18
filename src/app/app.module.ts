@@ -26,7 +26,7 @@ import { SearchComponent } from './search/search.component';
 import { FriendsComponent } from './friends/friends.component';
 import { InvitesComponent } from './invites/invites.component';
 import { MessagesComponent } from './messages/messages.component';
-
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { MessagesComponent } from './messages/messages.component';
     SearchComponent,
     FriendsComponent,
     InvitesComponent,
-    MessagesComponent
+    MessagesComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
